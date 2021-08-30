@@ -27,3 +27,34 @@ Softwares
 | RAxML-NG | v.0.9.0 |
 
 ## Required files
+In the pipeline we have two channels for inputs. First channel called "contig_files" requires a folder called "contig_files" and should include fasta files with the extension name '.fa'. You will need to specify which ORF region the sequences belongs to in each file for the pipeline to add the correct outgroup. This pipeline is hardcoded for TTV ORFs and you can choose between ORF1, ORF2, ORF3 and ORF4. 
+...
+...
+In the second channel the input file should be sequences with the outgroups and it should be a folder called "req_files". You will need to specify in each fasta header to which ORF the sequence belongs to.
+..
+..
+
+## Installing using Conda environment
+...
+...
+
+## Running 
+The user should create two folders one called 'contig_files' and one called 'req_files' and store all samples in contig_files and the file with outgroups in req_files. All files must be in fasta format with the file extension ".fasta". 
+It is also possible to change the following code line to the preferred filename and file extension, but the content of the files should be in fasta format:
+```
+//contig sequences
+contig_files = Channel.fromFilePairs("${params.contigs}/*.fa",size:1)
+
+//sequences with outgroups
+outgroup_file = Channel.fromFilePairs("${params.req}/*.fa",size:1)
+```
+
+To run the pipeline in command line:
+```
+nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj
+```
+To run the pipeline in command line and resume from cache memory:
+```
+nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj -resume
+```
+
