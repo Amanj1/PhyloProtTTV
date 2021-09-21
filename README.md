@@ -57,4 +57,11 @@ To run the pipeline in command line and resume from cache memory:
 ```
 nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj -resume
 ```
+## Alternative to protein pipeline (if the pipeline does not work for your data)
+I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, Gblocks, but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit. 
+
+### How to run bash script (alternative for pipeline)
+You will need to have all input data in a folder and move into the directory with the input data. In each input file you need to have both the sequences you want to run your phylogenetic study on and your outgroup sequences. Each file should with the file extension ".fasta" and should be in fasta format. Everything else will be handled by the script. 
+
+#### Gblocks settings
 
