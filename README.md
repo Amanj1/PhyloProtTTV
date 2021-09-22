@@ -61,7 +61,9 @@ nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.
 I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, Gblocks, but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit. 
 
 ### How to run bash script (alternative for pipeline)
-You will need to have all input data in a folder and move into the directory with the input data. In each input file you need to have both the sequences you want to run your phylogenetic study on and your outgroup sequences. Each file should with the file extension ".fasta" and should be in fasta format. Everything else will be handled by the script. 
+You will need to have all input data in a folder and move into the directory with the input data. In each input file you need to have both the sequences you want to run your phylogenetic study on and your outgroup sequences. Each file should be with the file extension ".fasta" and should be in fasta format. Everything else will be handled by the script. 
+
+When running the script ignore the error messages from the command move (mv). The script will you use the file name as ID without the file extension. The ID will be used to name files and create folders. Each folder will be labeled with the ID and it will contain four folders. One folder for the protein sequence that you used as an input data called "protein_seq", one folder for the multiple sequence alignment called "mafft_aln", one for trimming results called "Gblocks_trim" and the final results with the tree data in "RAxML_data".
 
 #### Gblocks settings
 
