@@ -28,11 +28,16 @@ Softwares
 
 ## Required files
 In the pipeline we have two channels for inputs. First channel called "contig_files" requires a folder called "contig_files" and should include fasta files with the extension name '.fa'. You will need to specify which ORF region the sequences belongs to in each file for the pipeline to add the correct outgroup. This pipeline is hardcoded for TTV ORFs and you can choose between ORF1, ORF2, ORF3 and ORF4. 
-...
-...
+```
+>10350_5_ORF1_AML
+```
+In the example above we can see that "ORF1" is mentioned in the fasta header for the input sequence.
+
 In the second channel the input file should be sequences with the outgroups and it should be a folder called "req_files". You will need to specify in each fasta header to which ORF the sequence belongs to.
-..
-..
+```
+>YP_009115496.1_ORF1_SEAL_anellovirus4_OutGrp
+```
+In the example above we can see that "ORF1" is mentioned in the fasta header for the outgroup sequence.
 
 ## Installing using Conda environment
 ...
