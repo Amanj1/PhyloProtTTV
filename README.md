@@ -57,13 +57,22 @@ To run the pipeline in command line and resume from cache memory:
 ```
 nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj -resume
 ```
-## Alternative to protein pipeline (if the pipeline does not work for your data)
-I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, Gblocks, but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit. 
+## Alternative to protein pipeline (if the pipeline does not work with your data)
+I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, [Gblocks](http://molevol.cmima.csic.es/castresana/Gblocks.html), but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit and I created this script instead.
 
-### How to run bash script (alternative for pipeline)
+### How to run the bash script (alternative for pipeline)
 You will need to have all input data in a folder and move into the directory with the input data. In each input file you need to have both the sequences you want to run your phylogenetic study on and your outgroup sequences. Each file should be with the file extension ".fasta" and should be in fasta format. Everything else will be handled by the script. 
 
-When running the script ignore the error messages from the command move (mv). The script will you use the file name as ID without the file extension. The ID will be used to name files and create folders. Each folder will be labeled with the ID and it will contain four folders. One folder for the protein sequence that you used as an input data called "protein_seq", one folder for the multiple sequence alignment called "mafft_aln", one for trimming results called "Gblocks_trim" and the final results with the tree data in "RAxML_data".
+When running the script ignore the error messages from the command move (mv) and don't forget to adjust the number of threads in flags "--thread" and "--threads". The script will you use the file name as ID without the file extension. The ID will be used to name files and create folders. Each folder will be labeled with the ID and it will contain four folders. One folder for the protein sequence that you used as an input data called "protein_seq", one folder for the multiple sequence alignment called "mafft_aln", one for trimming results called "Gblocks_trim" and the final results with the tree data in "RAxML_data".
 
 #### Gblocks settings
+If you prefer other settings for trimming your data you can read about "Command line parameters" in this link [Gblocks documentation](http://molevol.cmima.csic.es/castresana/Gblocks/Gblocks_documentation.html).
 
+#### Software versions used when I ran the script
+Softwares
+| Software | Version |
+| -------- | ------- |
+| MAFFT    | v7.455  |
+| Gblocks  | 0.91b   |
+| readseq  | 2.1.30  |
+| RAxML-NG | v.0.9.0 |
