@@ -39,6 +39,8 @@ In the second channel the input file should be sequences with the outgroups and 
 ```
 In the example above we can see that "ORF1" is mentioned in the fasta header for the outgroup sequence.
 
+This is useful if you plan on running different samples where each sample contains different ORFs and the outgroup file contains multiple ORF regions. If you don't add the ORF labels in the files the pipeline does not work properly and I don't have an error-handler.
+
 ## Installing using Conda environment
 ...
 ...
