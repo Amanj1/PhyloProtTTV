@@ -31,7 +31,7 @@ process filter_contigs{
   
   script:
 """ 
- seqtk seq -L 0 ${contig[0]} > "${sample_id}_selected_seq_filt.fasta"
+ seqtk seq -L ${params.seq_size} ${contig[0]} > "${sample_id}_selected_seq_filt.fasta"
   nr_of_seq=\$(cat "${sample_id}_selected_seq_filt.fasta" | grep ">" | wc -l)
  if [ \$nr_of_seq -eq 0 ]
  then
