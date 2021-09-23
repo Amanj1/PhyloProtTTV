@@ -9,10 +9,10 @@ params.req='req_files'
 
 /* input files */
 //contig sequences
-contig_files = Channel.fromFilePairs("${params.contigs}/*.fa",size:1)
+contig_files = Channel.fromFilePairs("${params.contigs}/*.fasta",size:1)
 
 //sequences with outgroups
-outgroup_file = Channel.fromFilePairs("${params.req}/*.fa",size:1)
+outgroup_file = Channel.fromFilePairs("${params.req}/*.fasta",size:1)
 
 /**
 
@@ -27,12 +27,12 @@ process filter_contigs{
   set sample_id, contig from contig_files 
   
   output:
-  set sample_id, stdout, "${sample_id}_selected_seq_filt.fa" into filt_contigs
+  set sample_id, stdout, "${sample_id}_selected_seq_filt.fasta" into filt_contigs
   
   script:
 """ 
- seqtk seq -L 0 ${contig[0]} > "${sample_id}_selected_seq_filt.fa"
-  nr_of_seq=\$(cat "${sample_id}_selected_seq_filt.fa" | grep ">" | wc -l)
+ seqtk seq -L 0 ${contig[0]} > "${sample_id}_selected_seq_filt.fasta"
+  nr_of_seq=\$(cat "${sample_id}_selected_seq_filt.fasta" | grep ">" | wc -l)
  if [ \$nr_of_seq -eq 0 ]
  then
     echo false
