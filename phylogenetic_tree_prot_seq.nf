@@ -53,7 +53,7 @@ process add_outgroup_to_seq{
   set sample_id, bool, contig, outgrp_name, outgrp_seq from combine_filt_contigs_outgroup 
   
   output:
-  set sample_id, "${sample_id}_selected_seq_filt_with_outgrp.fa" into filt_contigs_and_outgrp
+  set sample_id, "${sample_id}_selected_seq_filt_with_outgrp.fasta" into filt_contigs_and_outgrp
   
   script:
 """ 
@@ -63,7 +63,7 @@ f1 = open("${contig}","r+")
 contigs = f1.readlines()
 f2 = open("${outgrp_seq[0]}","r+")
 outgrp = f2.readlines()
-f3 = open("${sample_id}_selected_seq_filt_with_outgrp.fa", "a+")
+f3 = open("${sample_id}_selected_seq_filt_with_outgrp.fasta", "a+")
 val = 0
 if "ORF1" in "${sample_id}":
     val = 1
