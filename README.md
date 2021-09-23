@@ -2,8 +2,8 @@
 A Nextflow DSL 1 pipeline to preform a protein phylogenetic analysis of fasta sequece data mainly focused on Torqe Teno Virus (TTV) Open Reading Frames (ORFs), but it is possible to tweak the pipeline for other purposes.
 The phylogenetic trees are based on statistical metod called maximum likelihood with bootstrapping. We are using [RAxML-NG](https://academic.oup.com/bioinformatics/article/35/21/4453/5487384) (click on link to read article) tool to produce the trees. 
 
-The first step is to filter out fasta sequences based on the length (currently it is set to 0). 
-2nd step is to add the outgroups to the sequence fasta files after that we are running a multiple sequences alignment and trimming. 
+The first step is to filter out fasta sequences based on the length (currently it is set to 1). 
+second step is to add the outgroups to the sequence fasta files after that we are running a multiple sequences alignment and trimming. 
 The Final step is running RAxML.
 
  ## Software requirements 
@@ -64,6 +64,17 @@ To run the pipeline in command line and resume from cache memory:
 ```
 nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj -resume
 ```
+### Changing sequence size filter
+In the config file "PhyloProtTTV.config" you can change the sequence size to filter out sequences based on sequence length.
+```
+/* Pipeline running parameters */
+params{
+  seq_size=1
+  publish_base_dir='phylogenetic_prot_output'
+}
+```
+seq_size can be changed to the desirable minimum sequence length. It is currently set to 1 to include all fasta sequences. 
+
 ## Alternative to protein pipeline (if the pipeline does not work with your data)
 I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, [Gblocks](http://molevol.cmima.csic.es/castresana/Gblocks.html), but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit and I created this script instead.
 
