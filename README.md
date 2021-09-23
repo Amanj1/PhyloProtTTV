@@ -27,7 +27,7 @@ Softwares
 | RAxML-NG | v.0.9.0 |
 
 ## Required files
-In the pipeline we have two channels for inputs. First channel called "contig_files" requires a folder called "contig_files" and should include fasta files with the extension name '.fa'. You will need to specify which ORF region the sequences belongs to in each file for the pipeline to add the correct outgroup. This pipeline is hardcoded for TTV ORFs and you can choose between ORF1, ORF2, ORF3 and ORF4. 
+In the pipeline we have two channels for inputs. First channel called "contig_files" requires a folder called "contig_files" and should include fasta files with the extension name '.fasta'. You will need to specify which ORF region the sequences belongs to in each file for the pipeline to add the correct outgroup. This pipeline is hardcoded for TTV ORFs and you can choose between ORF1, ORF2, ORF3 and ORF4. 
 ```
 >10350_5_ORF1_AML
 ```
@@ -50,10 +50,10 @@ The user should create two folders one called 'contig_files' and one called 'req
 It is also possible to change the following code line to the preferred filename and file extension, but the content of the files should be in fasta format:
 ```
 //contig sequences
-contig_files = Channel.fromFilePairs("${params.contigs}/*.fa",size:1)
+contig_files = Channel.fromFilePairs("${params.contigs}/*.fasta",size:1)
 
 //sequences with outgroups
-outgroup_file = Channel.fromFilePairs("${params.req}/*.fa",size:1)
+outgroup_file = Channel.fromFilePairs("${params.req}/*.fasta",size:1)
 ```
 
 To run the pipeline in command line:
