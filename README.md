@@ -58,11 +58,11 @@ outgroup_file = Channel.fromFilePairs("${params.req}/*.fasta",size:1)
 
 To run the pipeline in command line:
 ```
-nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj
+nextflow -C PhyloProtTTV.config run PhyloProtTTV.nf -profile amanj
 ```
 To run the pipeline in command line and resume from cache memory:
 ```
-nextflow -C phylogenetic_tree_prot_seq.nf.config run phylogenetic_tree_prot_seq.nf -profile amanj -resume
+nextflow -C PhyloProtTTV.config run PhyloProtTTV.nf -profile amanj -resume
 ```
 ### Changing sequence size filter
 In the config file "PhyloProtTTV.config" you can change the sequence size to filter out sequences based on sequence length.
