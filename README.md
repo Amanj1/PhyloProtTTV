@@ -75,7 +75,7 @@ params{
 ```
 seq_size can be changed to the desirable minimum sequence length. It is currently set to 1 to include all fasta sequences. 
 
-## Alternative to protein pipeline (if the pipeline does not work with your data)
+## Alternative to pipeline (if the pipeline does not work with your data)
 I created a bash script containing multiple one-liners of for loops to run on multiple files within the current directory you are in. Some sequence in the input data is not accepted by the trimming program TrimAl used in the pipeline and I've tried to include an alternative trimming program, [Gblocks](http://molevol.cmima.csic.es/castresana/Gblocks.html), but for some reason Gblocks outputs an exit message when finishing the run and this makes the pipeline exit and I created this script instead.
 
 ### How to run the bash script (alternative for pipeline)
