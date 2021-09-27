@@ -45,7 +45,7 @@ This is useful if you plan on running different samples where each sample contai
 ...
 ...
 
-## Running 
+## Running pipeline
 The user should create two folders one called 'contig_files' and one called 'req_files' and store all samples in contig_files and the file with outgroups in req_files. All files must be in fasta format with the file extension ".fasta". 
 It is also possible to change the following code line to the preferred filename and file extension, but the content of the files should be in fasta format:
 ```
