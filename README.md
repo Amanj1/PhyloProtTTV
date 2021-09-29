@@ -1,6 +1,6 @@
 # PhyloProtTTV
 A Nextflow DSL 1 pipeline to preform a protein phylogenetic analysis of fasta sequece data mainly focused on Torqe Teno Virus (TTV) Open Reading Frames (ORFs), but it is possible to tweak the pipeline for other purposes.
-The phylogenetic trees are based on statistical metod called maximum likelihood with bootstrapping. We are using [RAxML-NG](https://academic.oup.com/bioinformatics/article/35/21/4453/5487384) (click on link to read article) tool to produce the trees. 
+The phylogenetic trees are based on statistical method called maximum likelihood with bootstrapping. We are using [RAxML-NG](https://academic.oup.com/bioinformatics/article/35/21/4453/5487384) (click on link to read article) tool to produce the trees. 
 
 The first step is to filter out fasta sequences based on the length (currently it is set to 1). 
 second step is to add the outgroups to the sequence fasta files after that we are running a multiple sequences alignment and trimming. 
